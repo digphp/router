@@ -21,9 +21,9 @@ class Generator
     ) {
         ksort($params);
         if ($this->isStaticRoute($routeData)) {
-            $this->addStaticRoute($httpMethod, $routeData, $handler, $middlewares, $params, $name);
+            $this->addStaticRoute(strtoupper($httpMethod), $routeData, $handler, $middlewares, $params, $name);
         } else {
-            $this->addVariableRoute($httpMethod, $routeData, $handler, $middlewares, $params, $name);
+            $this->addVariableRoute(strtoupper($httpMethod), $routeData, $handler, $middlewares, $params, $name);
         }
     }
 

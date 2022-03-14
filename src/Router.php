@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace DigPHP\Router;
 
+use Exception;
+
 /**
  * @method Route dispatch(string $httpMethod, string $uri)
  * @method string build(string $name, array $params = [], string $method = 'GET')
@@ -50,7 +52,7 @@ class Router
         } elseif (in_array($name, ['parse'])) {
             return $this->parser->$name(...$arguments);
         } else {
-            trigger_error('Call to undefined method DigPHP\Router\Router::' . $name . '()');
+            throw new Exception('Call to undefined method DigPHP\Router\Router::' . $name . '()');
         }
     }
 }
